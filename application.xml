@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <application xmlns="http://ns.adobe.com/air/application/1.5"> 
     <id>com.adobe.example.TeaTimer</id>
-    <version>0.6</version> 
+    <version>0.7</version> 
     <filename>TeaTimer</filename> 
 	<description>A simple timer for making tea</description>
     <initialWindow> 
