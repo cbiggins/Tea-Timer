@@ -25,6 +25,9 @@ function loadPrefs() {
 
 		var prefSound = prefsXML.getElementsByTagName('sound');
 		setSound(prefSound[0].firstChild.nodeValue);
+		
+		var infrontBounce = prefsXML.getElementsByTagName('infront');
+		setInFront(infrontBounce[0].firstChild.nodeValue);
 	}
 }
 
@@ -109,11 +112,34 @@ function getBounce() {
 	return document.getElementById('bounce').checked;
 }
 
-function setSound(val) {
+function setInFront(val) {
 	if (val == 'false') {
-		document.getElementById('alert').checked = false;	
+		document.getElementById('infront').checked = false;
+		window.nativeWindow.alwaysInFront = false;
 	} else {
-		document.getElementById('alert').checked = true;
+		document.getElementById('infront').checked = true;
+		window.nativeWindow.alwaysInFront = true;
+	}
+}
+
+function inFrontToggle(){
+	if (document.getElementById('infront').checked) {
+		window.nativeWindow.alwaysInFront = true;
+	}
+	else {
+		window.nativeWindow.alwaysInFront = false;
+	}
+}
+
+function getInFront() {
+	return document.getElementById('infront').checked;
+}
+
+function setSound(val) {
+	if (val) {
+		document.getElementById('alert').checked = true;	
+	} else {
+		document.getElementById('alert').checked = false;
 	}
 }
 
@@ -162,6 +188,8 @@ function writePrefs(){
 		"	<bounce>" + getBounce() + "</bounce>" +
 		cr +
 		"	<sound>" + getSound() + "</sound>" +
+		cr +
+		"	<infront>" + getInFront() + "</infront>" +
 		cr +
 		"	<saveDate>" +
 		new Date().toString() +

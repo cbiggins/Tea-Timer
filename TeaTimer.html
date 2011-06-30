@@ -16,14 +16,20 @@
                 height: 100px;
             }
             
+			.settings { clear: both; }
+			
             #countdown {
                 height: 100px;
                 margin-left: 10px;
                 font-size: 6em;
             }
+			
+			label {
+				font-size: 14px;
+			}
         </style>
 		<script type="text/javascript" src="TeaTimer.js"></script>
-        <title>Tea Timer v 0.7</title>
+        <title>Tea Timer v 0.8</title>
     </head>
     <body onLoad="appLoad()">
         <span id="notify" style="display:none">Your tea is ready</span>
@@ -38,13 +44,19 @@
         <div class="content">
             <span id="countdown">&nbsp;</span>
             <br/>
+		</div>
+		<div class="settings">
             <span id="options"><input type="checkbox" checked="checked" id="bounce" />
                 <label for="bounce">
                     Bounce?
                 </label>
-                &nbsp; &nbsp; <input type="checkbox" checked="checked" id="alert" />
+                <input type="checkbox" checked="checked" id="alert" />
                 <label for="alert">
                     Alert?
+                </label>
+				<input type="checkbox" checked="checked" id="infront" onChange="inFrontToggle();" />
+                <label for="infront">
+                    Stay in front?
                 </label>
             </span>
         </div>
